@@ -1,0 +1,198 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Helvetica', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  line-height: 1.5;
+  color: #000;
+}
+
+#main h1 {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+#root {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+#sidebar {
+  width: 22rem;
+  background-color: #8dd7ff;
+  border-right: solid 1px #002aff;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#sidebar > * {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+#sidebar h1 {
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 1rem 2rem;
+  border-top: 1px solid #e3e3e3;
+  order: 1;
+  line-height: 1;
+}
+
+#sidebar > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+#sidebar nav {
+  flex: 1;
+  overflow: auto;
+  padding-top: 2rem;
+  font-weight: bold;
+}
+
+#sidebar ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#sidebar li {
+  margin: 0.25rem 0;
+}
+
+#sidebar nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+
+  white-space: pre;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+  gap: 1rem;
+}
+
+#sidebar nav a:hover {
+  background: #fffa9a;
+}
+
+#sidebar nav a.active {
+  background: hsl(224, 98%, 58%);
+  color: white;
+}
+
+#sidebar nav a.pending {
+  color: hsl(224, 98%, 58%);
+}
+
+#detail {
+  flex: 1;
+  padding: 2rem 4rem;
+  width: 100%;
+}
+
+#detail.loading {
+  opacity: 0.25;
+  transition: opacity 200ms;
+  transition-delay: 200ms;
+}
+
+#main {
+  max-width: 40rem;
+  /* display: flex; */
+}
+
+#main h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+#main h1 + p {
+  margin: 0;
+}
+
+#main h1 + p + p {
+  white-space: break-spaces;
+}
+
+#main h1:focus {
+  outline: none;
+  color: hsl(224, 98%, 58%);
+}
+
+#main img {
+  width: 12rem;
+  height: 12rem;
+  background: #c8c8c8;
+  margin-right: 2rem;
+  border-radius: 1.5rem;
+  object-fit: cover;
+}
+
+#main h1 ~ div {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+#error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.placeholder {
+  width: 200px;
+  height: 200px;
+  border-radius: 25%;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
