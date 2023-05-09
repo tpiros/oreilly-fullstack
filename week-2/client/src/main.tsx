@@ -8,6 +8,7 @@ import Root from './routes/root.tsx';
 import ErrorPage from './error-page.tsx';
 import Team from './routes/team.tsx';
 import Player from './routes/player.tsx';
+import Index from './routes/index.tsx';
 
 const client = new ApolloClient({
   uri: import.meta.env.VITE_GRAPHQL_URL || 'http://localhost:4000',
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
     element: <Root />,
     errorElement: <ErrorPage />,
     children: [
+      { index: true, element: <Index /> },
       {
         path: 'teams/:teamId',
         element: <Team />,
