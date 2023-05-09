@@ -59,31 +59,6 @@ export default function Team() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  const getPlayerPhoto = (name: string) => {
-    const publicId = name.replaceAll(' ', '-').toLowerCase();
-    const cld = new Cloudinary({
-      cloud: { cloudName: 'tamas-demo' },
-      url: { secure: true },
-    });
-
-    const playerPhoto = cld.image(`football-players/${publicId}`);
-    playerPhoto
-      .resize(
-        thumbnail().width(200).height(200).zoom(0.7).gravity(focusOn(face()))
-      )
-      .delivery(defaultImage('avatar.png'))
-      .overlay(
-        source(
-          text(name, new TextStyle('Helvetica', 20))
-            .textColor('#000')
-            .backgroundColor('#ff5050')
-        ).position(new Position().gravity(compass('south')).offsetY(10))
-      )
-      .format('auto')
-      .quality('auto');
-
-    return <AdvancedImage cldImg={playerPhoto} />;
-  };
   return (
     <>
       <div>
