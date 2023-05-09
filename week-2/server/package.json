@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "delete": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true});\"",
     "compile": "tsc",
-    "start": "npm run delete && npm run compile && node ./dist/index.js"
+    "delete": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true});\"",
+    "seed": "tsx prisma/seed.ts",
+    "start": "npm run seed && node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -29,6 +30,6 @@
   },
   "type": "module",
   "prisma": {
-    "seed": "ts-node --transpile-only prisma/seed.ts"
+    "seed": "tsx prisma/seed.ts"
   }
 }
